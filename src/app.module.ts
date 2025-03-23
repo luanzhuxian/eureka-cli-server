@@ -3,7 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ProjectModule } from './project/project.module';
+import { ProjectsModule } from './modules/projects/projects.module';
+import { TemplatesModule } from './modules/templates/templates.module';
 // import databaseConfig from './config/database.config';
 import * as Joi from 'joi';
 
@@ -35,7 +36,8 @@ import * as Joi from 'joi';
       }),
       inject: [ConfigService],
     }),
-    ProjectModule,
+    ProjectsModule,
+    TemplatesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
